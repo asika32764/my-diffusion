@@ -60,4 +60,4 @@ if __name__ == "__main__":
     betas = get_beta_schedule(T)
     alphas, alpha_bars = get_alphas(betas)
 
-    create_diffusion_animation(x_0, alpha_bars, filename="diffusion.gif", step=50)
+    create_diffusion_animation(x_0, alpha_bars, filename="dist/diffusion.gif", step=50)
