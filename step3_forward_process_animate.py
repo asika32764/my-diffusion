@@ -5,9 +5,13 @@ from torchvision import transforms
 from PIL import Image
 import numpy as np
 
+from shared import get_device
+
+device = get_device()
+
 # 建立 beta 與 alpha
 def get_beta_schedule(T, beta_start=1e-4, beta_end=0.02):
-    return torch.linspace(beta_start, beta_end, T)
+    return torch.linspace(beta_start, beta_end, T).to(device)
 
 def get_alphas(betas):
     alphas = 1.0 - betas
@@ -27,7 +31,7 @@ def load_image(path, image_size=64):
         transforms.ToTensor()
     ])
     image = Image.open(path).convert("RGB")
-    return transform(image).unsqueeze(0)
+    return transform(image).to(device).unsqueeze(0)
 
 # 把 tensor 轉 numpy image
 def tensor_to_image(img_tensor):

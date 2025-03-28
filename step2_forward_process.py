@@ -48,7 +48,7 @@ def show_tensor_image(img_tensor, title=""):
 
 # 執行範例
 if __name__ == "__main__":
-    T = 200
+    T = 1000
     image_path = "cop.jpg"
     x_0 = load_image(image_path)  # shape: [1, 3, 64, 64]
 
